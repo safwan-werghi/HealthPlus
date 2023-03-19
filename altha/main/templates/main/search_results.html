@@ -1,0 +1,79 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}search results{% endblock %}
+
+
+{% block content %}
+<div id="search-banner2">
+    <div id="form" class="form-outline ">
+        <form action="{% url 'search_results' %}" method="get">
+            <label for="q" class="mb-2">Recherche par nom/ prénom/ mot clé...</label>
+            <input type="text" id="q" name="q" class='input-lg mb-2'><br>
+            <label for="loc">Choose a location:</label>
+            <select id="loc" name="loc" size="1" class='btn btn-outline-dark btn dropdown-toggle'>
+            <option>-Location-</option>
+            <option value="Béja">Béja</option>
+            <option value="Ben_Arous">Ben Arous</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Gafsa">Gafsa</option>
+            <option value="Jendouba">Jendouba</option>
+            <option value="Kairouan">Kairouan</option>
+            <option value="Kasserine">Kasserine</option>
+            <option value="Kébili">Kébili</option>
+            <option value="Manouba">Manouba</option>
+            <option value="Mahdia">Mahdia</option>
+            <option value="Médinine">Médinine</option>
+            <option value="Monastir">Monastir</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Sidi_Bouzid ">Sidi Bouzid</option>
+            <option value="Siliana">Siliana</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Tataouine">Tataouine</option>
+            <option value="Tozeur">Tozeur</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Zaghouan">Zaghouan</option>
+            <option value="le_Kef">le Kef</option>
+            </select> 
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<h1>Search Results</h1>
+{% if data %}
+Results : {{ data|length }}
+<div class="search-results">
+    {% for CustomUser in data %}
+       <div class="card" style="width:400px; height:650px;">
+            <img class="card-img-top" src="{{ doctor.profile_picture.url }}" alt="Card image cap"/>
+            <h5 class="card-title">{{ CustomUser.first_name }}, {{ CustomUser.last_name }}</h5>
+            <br/>
+            <p class="card-text">
+                {{ CustomUser.doctor.specialty }}
+                </p>br>
+                {{ CustomUser.doctor.location }}
+                </br>
+                {{ CustomUser.doctor.bio }}
+                </br>
+                {{ CustomUser.doctor.address }}
+                </br>
+                {{ CustomUser.doctor.phone_number }}
+                </br>
+                {{ CustomUser.doctor.landline_number}}
+                </br>
+                {{ CustomUser.doctor.emergency_line }}
+                </br>
+                {{ CustomUser.doctor.email}}
+                </br>
+                {% if user.is_authenticated %}
+                <form method="post" action="take_appointment.html">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" name="doctor_id" value="{{CustomUser.id}}">Take an appointment</button>
+                </form>
+            {% endif %}
+            </p>
+       </div>
+    {% endfor %}
+    {% endif %}
+    </ul>
+    {% endblock %}
+</div>
