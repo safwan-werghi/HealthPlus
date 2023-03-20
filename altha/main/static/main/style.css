@@ -1,0 +1,22 @@
+.body {font-family: 'Source Sans Pro'; }
+#search-banner {
+	 display:flex;
+	 align-items: center;
+	 justify-content:center;
+     background: url("images/picture1.jpg") 50% 0 no-repeat fixed;
+     background-size: cover;
+     color: white;
+     height: 650px;
+        }
+
+#form { display:flex; }
+
+.search-results li { margin-bottom:10px; margin-top:10px;}
+
+
+#search-banner2 { margin-top:10px; margin-bottom:10px; }
+
+
+.input-lg { width:500px; border-radius: 7px; border: 1.5px solid #E3E6ED;}
+
+
