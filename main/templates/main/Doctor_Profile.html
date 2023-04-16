@@ -1,0 +1,71 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+
+<br>
+<div id="doctor-info-container">
+<h4><b>Firstname:</b> {{request.user.first_name}}</h4>
+
+</br>
+<h4><b>Lastname:</b> {{request.user.last_name}}</h4>
+
+</br>
+<h4><b>Email:</b> {{request.user.email}}</h4>
+
+</br>
+<h4><b>Gender:</b> {{request.user.gender}}</h4>
+    
+
+</br>
+<h4><b>Birthdate:</b> {{request.user.birthdate}}</h4>
+
+</br>
+<h4><b>Phone-number:</b> {{request.user.phone_number}}</h4>
+
+
+
+
+
+</br>
+<h4><b>location:</b> {{request.user.doctor.location}}</h4>
+
+
+<br/>
+<h4><b>Specialty:</b> {{request.user.doctor.specialty}}</h4>
+
+</br>
+
+<h4><b>Bio:</b> {{request.user.doctor.bio}}</h4>
+
+</br>
+
+<h4><b>Address:</b> {{request.user.doctor.address}}</h4>
+
+</br>
+
+<h4><b>Landline number:</b> {{request.doctor.landline_number}}</h4>
+
+</br>
+
+<h4><b>Emergency line:</b> {{request.user.doctor.emergency_line}}</h4>
+
+</br>
+
+<h4><b>Current profile picture:</b></h4> <img src="{{request.user.doctor.profile_picture.url}}" style="width=200px; height:400px; margin:10px; border: 3px solid black; border-radius: 7px;"/>
+
+</br>
+
+<button type="button" class="btn btn-secondary mb-4">Edit your profile</button>
+</div>
+
+
+
+
+{% else %}
+	<p>You're not logged in. would you like to <a href="/login">login</a></p>
+{% endif %}
+
+{% endblock %}
+

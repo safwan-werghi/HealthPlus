@@ -1,0 +1,37 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}schedule an appointment{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated  %}
+		<h1>schedule an appointment :</h1>
+		</br>
+		<form method="post">
+		{% csrf_token %}
+		{{form|crispy}}
+		<button type="submit" class="btn btn-success">done</button>
+		</form>
+		</br>
+		<h1>your scheduled appointments :</h1>
+		</br>
+		<div id="appointments-container-p">
+			{% for appointment in data %}
+				<div class="appointment-info-p">
+					<h4><b style="color:green;">doctor :</b>    {{appointment.doctor.CustomUser.first_name}}  {{appointment.doctor.CustomUser.last_name}}</h4>
+					<h4><b style="color:green;">appointment date :</b>   {{appointment.patient_proposed_date}}</h4>
+					</br>
+					{% if appointment.on_hold %}
+					<p>your appointment hasn't been reviewed by the doctor yet</p>
+					{% elif appointment.is_confirmed %}
+					<p>your appointment has been confirmed by your doctor</p>
+					{% elif appointment.is_rejected %}
+					<p>The doctor is not available on the date you previously selected , please schedule an appointment with a different date</p>
+					{% endif %}
+				</div>
+			{% endfor %} 
+		</div>
+{% else %}
+		<p>You are not logged in, to schedule an appointment you must <a href="/login">login</a></p>
+{% endif %}
+{% endblock %}
+

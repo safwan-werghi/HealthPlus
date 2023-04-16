@@ -1,0 +1,94 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Health worker space{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<form method="post">
+{% csrf_token %}
+<br>
+<div class="form-outline w-50">
+<label for="firstname" class="form-label"><b>Firstname:</b> {{request.user.first_name}}</label>
+<input type="text" id="firstname" name="firstname" class="form-control">
+</br>
+<label for="lastname" class="form-label"><b>Lastname:</b> {{request.user.first_name}}</label>
+<input type="text" id="lastname" name="lastname" class="form-control">
+</br>
+<label for="email" class="form-label"><b>Email:</b> {{request.user.email}}</label>
+<input type="email" id="email" name="email" class="form-control">
+</br>
+<label><b>Gender:</b> {{request.user.gender}}</label>
+<input type="radio" id="male" name="male" value="male" class="form-check-input" />     
+<label for="male" class="form-check-label">Male</label>
+<input type="radio" id="female" name="female" value="female" class="form-check-input" />
+<label for="female" class="form-check-label">Female</label>
+</br>
+</br>
+<label for="birthdate" class="form-label"><b>Birthdate:</b> {{request.user.birthdate}}</label>
+<input type="date" id="birthdate" name="birthdate" class="form-control">
+</br>
+<label for="phone_number" class="form-label"><b>Phone-number:</b> {{request.user.phone_number}}</label>
+<input type="tel" id="phone_number" name="phone_number" class="form-control">
+</br>
+<label for="location" class="form-label"><b>location:</b> {{request.user.doctor__location}}</label>
+<select id="location" name="location" size="1" class='btn btn-outline-dark btn dropdown-toggle'>
+						<option>-Location-</option>
+						<option value="Béja">Béja</option>
+						<option value="Ben_Arous">Ben Arous</option>
+						<option value="Bizerte">Bizerte</option>
+						<option value="Gafsa">Gafsa</option>
+						<option value="Jendouba">Jendouba</option>
+						<option value="Kairouan">Kairouan</option>
+						<option value="Kasserine">Kasserine</option>
+						<option value="Kébili">Kébili</option>
+						<option value="Manouba">Manouba</option>
+						<option value="Mahdia">Mahdia</option>
+						<option value="Médinine">Médinine</option>
+						<option value="Monastir">Monastir</option>
+						<option value="Nabeul">Nabeul</option>
+						<option value="Sidi_Bouzid ">Sidi Bouzid</option>
+						<option value="Siliana">Siliana</option>
+						<option value="Sousse">Sousse</option>
+						<option value="Tataouine">Tataouine</option>
+						<option value="Tozeur">Tozeur</option>
+						<option value="Tunis">Tunis</option>
+						<option value="Zaghouan">Zaghouan</option>
+						<option value="le_Kef">le Kef</option>
+						</select> 
+</br>
+<label for="specialty" class="form-label"><b>Specialty:</b> {{request.user.doctor__specialty}}</label>
+<input type="text" id="specialty" name="specialty" class="form-control">
+</br>
+
+<label for="bio" class="form-label"><b>Bio:</b> {{request.user.doctor__bio}}</label>
+<input type="text" id="bio" name="bio" class="form-control">
+</br>
+
+<label for="address" class="form-label"><b>Address:</b> {{request.user.doctor__address}}</label>
+<input type="text" id="address" name="address" class="form-control">
+</br>
+
+<label for="landline_number" class="form-label"><b>Landline number:</b> {{request.doctor__landline_number}}</label>
+<input type="tel" id="landline_number" name="landline_number" class="form-control">
+</br>
+
+<label for="emergency_line" class="form-label"><b>Emergency line:</b> {{request.user.doctor__emergency_line}}</label>
+<input type="tel" id="emergency_line" name="emergency_line" class="form-control">
+</br>
+
+<label for="profile_picture" class="form-label"><b>Current profile picture:</b> {{request.user.doctor__profile_picture}}</label>
+<input type="image"  class="form-control">
+</br>
+
+<button type="submit" class="btn btn-dark" name="submit">Save</button>
+</div>
+</form>
+
+
+
+
+{% else %}
+	<p>You're not logged in. would you like to <a href="/login">login</a></p>
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Health worker space{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+    {% if data  %}
+		{% for appointment in data %}
+			<h3>Appointment date proposed by patient:  {{appointment.patient_proposed_date}}</h3>
+			<h3>Appointment time:  {{appointment.appointment_time}}</h3>
+			<p>{{appointment.additional_info}}</p>
+			<p><b>Patient:</b> {{appointment.patient.first_name}} {{appointment.patient.last_name}}</p>
+			<p><b> email:</b> {{appointment.patient.email}}</p>
+			<p><b> gender:</b> {{appointment.patient.gender}}</p>
+			<p><b> birthdate:</b> {{appointment.patient.birthdate}}</p>
+			<form method="post">
+			{% csrf_token %}
+			<label for="appt">Choose a time for this appointment:</label>
+			<input type="time" id="appt_time" name="time" min="09:00" max="18:00">
+			<button type="submit" class="btn btn-dark" name="patient_mail" value="{{appointment.patient}}">Set time</button>
+			</form>
+			</br>
+			{% if appointment.is_confirmed %}
+				<p><b>Appointment Status :</b> Confirmed</p>
+				<form method="post">
+				{% csrf_token %}
+				<button type="submit" class="btn btn-outline-secondary" name="reject" value="{{appointment.patient}}">Reject</button>
+				</form>
+			{% else %}
+				<p><b>Appointment Status :</b> Rejected</p>
+				<form method="post">
+				{% csrf_token %}
+				<button type="submit" class="btn btn-outline-secondary" name="confirm" value="{{appointment.patient}}">Confirm</button>
+				</form>
+			{% endif %}
+			</br>
+			<form method="post">
+				{% csrf_token %}
+				<button type="submit" class="btn btn-outline-secondary" name="delete_appointment" value="{{appointment.patient}}">Delete appointment</button>
+				</form>
+			</br>
+			</br>
+			<hr>
+		{% endfor %}
+	{% else %}
+		<h2>You currently don't have any pending appointments</h2>
+	{% endif %}
+{% else %}
+	<p>You're not logged in. would you like to <a href="/login">login</a></p>
+{% endif %}
+
+{% endblock %}

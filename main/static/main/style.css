@@ -1,0 +1,166 @@
+.fa-solid {color:#4b4d46;}
+body {
+font-family: 'Source Sans Pro';  
+
+background:white;
+    
+ 
+}
+
+
+.nav-light a:hover { color:teal;}
+
+
+.top-buttons button {margin-right:10px; margin-top:13px;}
+
+#main-nav { height:47px; background-color:#022140;}/**/
+ 
+#search-banner {
+	 display:flex;
+	 margin-left:260px;
+	 flex-direction: column;
+	 align-items: center;
+	 justify-content:center;
+	 margin-bottom:0px;
+     color: #4b4d46;
+     width: 1400px;
+     height:500px;
+     background-size:cover;
+	
+
+     
+     animation-name: anim-banner;
+     animation-duration: 10s;
+     animation-iteration-count: infinite;
+
+        }
+        
+        
+        
+        
+@keyframes anim-banner{
+   0%{
+     background-image: url("images/picture2.jpg");
+     
+   }
+   25%{
+     background-image: url("images/picture14.jpg") ;
+     
+   }
+   50%{
+     background-image: url("images/picture15.jpg") ;
+      
+   }
+   75%{
+     background-image: url("images/picture13.jpg") ;
+       
+   }
+   100%{
+     background-image: url("images/picture1.jpg") ;
+     
+   }
+}        
+        
+        
+        
+       
+        
+             
+        
+        
+
+ 
+#inputs-bg { background-color:white; color:white; border-radius: 7px; border: 1.5px; padding:5px; position:relative; }
+
+
+
+
+
+.form2-container { display:flex; margin-top:30px;  }
+
+
+
+#search-banner2 { margin-top:10px; margin-bottom:10px; }
+
+
+.input-lg { width:500px; border-radius: 7px; border: 1.5px solid;}
+
+.form-control { width:70px;}
+
+
+
+#banner-text{ font-size: 40px; color:white; margin-bottom:200px;}
+
+
+
+
+#second-banner { background-color:white;   width: 1400px;  height:500px;  margin-left:260px; color:black; border: 1.5px solid teal;
+display:flex; 
+}
+
+.feature-container {border: 1.5px solid teal; }
+#second-banner p { text-align:center; padding:5px; }
+
+#calendar-image { margin-left:80px;}
+
+#third-banner {  margin:30px; display:flex; flex-direction:row; margin-left:0px;}
+#third-banner img { border-radius: 7px;}
+
+#third-banner p {font-size:28px; text-align:center; width:300px; margin-left:20px;  margin-top:0px; color:white; background-color:#022140; border-radius: 7px; height:800px; padding:5px; padding-top:100px;}
+
+
+
+
+#fourth-banner { margin:30px; display:flex; flex-direction:row; margin-left:255px; background-color:#e6ebe7; border-radius: 7px; width:1405px;}
+#fourth-banner p {font-size:28px; text-align:center; width:300px; margin-left:20px; margin-top:60px; color:white; background-color:black; border-radius: 7px; height:190px; padding:5px;}
+
+
+
+
+#fifth-banner{ height:760px; width:780px; background-color:white;  margin-left:300px; margin-right:500px; border-radius: 7px; display:flex; flex-direction:row; margin-bottom:20px;}
+#fifth-banner h3 {  margin-top:180px; color:black;  text-align:center; margin-left:10px;  }
+
+
+#enclosure-banner {  width: 1400px; margin-left:260px;}
+
+
+
+
+
+#doctor-info-container { margin-left:100px;  }
+
+#edit-doctor-profile-form {  }
+
+
+
+/*.postcard__bar {
+    width: 50px;
+    height: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+  }
+.card-img-top {
+    max-height: 380px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+&:hover .card-img-top {
+      transform: scale(1.1);
+    }
+*/
+.container { display:flex;  justify-content:center; flex-wrap:wrap; }
+.card { background-color:white; width:400px;   margin:10px; border-radius:15px;}
+.card-image {  height:400px;  margin-bottom:15px; background-size:cover; }
+.women-1 { background-image:url(https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);}
+.card:hover { background-color:rgb(62,62,62); color:white;  cursor:pointer; transform:scale(1.03); transition:all 1s ease;  }
+.card p  { margin-left:10px; }
+
+
+
+
+
+#appointments-container-p { display:flex;  justify-content:center; flex-wrap:wrap;  }
+.appointment-info-p { margin:15px; padding:5px; background-color:white; width:400px;  border-radius:15px;  border-style:solid; border-color:black;}

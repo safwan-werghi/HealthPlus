@@ -1,0 +1,79 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block content %}
+        <div id="search-banner">
+			<p id="banner-text"> PHYSICAL OR VIDEO CONSULTATION , Search for your health professional</p>
+			<br/>
+			<div id="form1" class="form-outline flex-container">
+				<form action="{% url 'search_results' %}" method="get">
+					<div id="inputs-bg">
+						<b><label for="q" class="mb-2 transparent-input" style="color:black;" >Search by par firstname/ lastname/ keyword ... </label></b>
+						<input type="text" id="q" name="q" class='input-lg mb-2' style="background-color:black; border-radius: 12px; border: 0; box-sizing: border-box; color: #eee; margin-top:5px;">
+						<button type="submit" style="color:black; background:transparent; border:none;"><i class="fa fa-search fa-lg fa-fade"></i></button>
+						<br/>
+						
+						<b><label for="loc" id="location-label" style="color:black;">Choose a location:</label></b>
+							<select id="loc" name="loc" size="1" class='btn btn-outline-dark btn dropdown-toggle'>
+							<option>Choose a location</option>
+							<option value="Ariana">Ariana</option>
+							<option value="Béja">Béja</option>
+							<option value="Ben_Arous">Ben Arous</option>
+							<option value="Bizerte">Bizerte</option>
+							<option value="Gafsa">Gafsa</option>
+							<option value="Jendouba">Jendouba</option>
+							<option value="Kairouan">Kairouan</option>
+							<option value="Kasserine">Kasserine</option>
+							<option value="Kébili">Kébili</option>
+							<option value="Manouba">Manouba</option>
+							<option value="Mahdia">Mahdia</option>
+							<option value="Médinine">Médinine</option>
+							<option value="Monastir">Monastir</option>
+							<option value="Nabeul">Nabeul</option>
+							<option value="Sidi_Bouzid ">Sidi Bouzid</option>
+							<option value="Siliana">Siliana</option>
+							<option value="Sousse">Sousse</option>
+							<option value="Tataouine">Tataouine</option>
+							<option value="Tozeur">Tozeur</option>
+							<option value="Tunis">Tunis</option>
+							<option value="Zaghouan">Zaghouan</option>
+							<option value="le_Kef">le Kef</option>
+							</select> 
+						
+					</div>
+				</form>
+            </div>
+        </div>
+        </div>
+        
+        
+<div id="second-banner">
+	<div class="feature-container"><img id="calendar-image"src="{% static 'main/images/calendar.jpg' %}" style="width:300px; height:300px;"/><p><b> Easy appointment booking</b><br/>Immediate confirmation of the appointment with your health professional, reminder or cancellation in two clicks</p></div>
+	<div class="feature-container"><img src="{% static 'main/images/people.jpg' %}" style="width:300px; height:300px;"/><p><b> Contact your practitioner</b><br/>Receiving and sending medical documents (prescriptions, letters...) </p></div>
+	<div class="feature-container"><img src="{% static 'main/images/paper.jpg' %}" style="width:300px; height:300px;"/><p><b> Access your dedicated space</b><br/> Permanent access to your agenda and documents from your patient area </p></div>
+	<div class="feature-container"><img src="{% static 'main/images/lock.jpg' %}" style="width:300px; height:300px;"/><p><b>  Your data in security</b><br/> Stay in control of your data: your information is protected by our HDS approved host </p></div>
+</div>
+		
+		
+<div id="third-banner">
+	<img src="{% static 'main/images/picture3.jpg' %}" style="width:1080px; height:800px; margin-left:260px;"/>
+	<p>We connect you with the right medical care <br/>Don’t wait weeks for an appointment. Our doctors, therapists, and specialists can help you with the flu, infections, anxiety, stress, skin conditions, and provide advice on serious medical conditions. <br/><button type="button" class="btn btn-light" style="">Find out more</button></p>
+</div>
+			
+
+			
+<div id="fourth-banner">
+	<img src="{% static 'main/images/picture12.jpg' %}" style="width:300; height:400px; margin-left:400px;"/>
+	<p><b>Are you a health care professional ?</b> 
+	<br/>
+	visit our <br/><button type="button" class="btn btn-light" style="">health worker space</button></p>
+</div>
+		<div id="enclosure-banner" class=" text-center text-white" style="border-radius: 7px;">
+			<div id="fifth-banner">
+			<h3><span style="margin-bottom:15px;"><b> NEED HELP ?</b></span><br/>Check out our online help for all your questions Do you have a question about how the platform works? Do you need help on how to use your space? Consult our online help section.<br/><button type="button" class="btn btn-dark" style="margin-top:10px;">Visit the FAQ</button></h3>
+			<img src="{% static 'main/images/picture18.jpg' %}" style="height:760px; width:470px; margin-left:20px; border-radius:0 7px 0 0;"/>
+			</div>
+		</div>
+{% endblock %}
+
+        

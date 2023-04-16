@@ -1,0 +1,91 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}search results{% endblock %}
+
+
+{% block content %}
+<div id="search-banner2">
+    <div id="form1" class="form-outline flex-container">
+				<form action="{% url 'search_results' %}" method="get">
+                    <label for="q" class="mb-2" style="margin-left:19px; color:white;">Search by par firstname/ lastname/ keyword ... </label></br>
+					<input type="text" id="q" name="q" class='input-lg mb-2' style="background-color: #303245; border-radius: 12px; border: 0; box-sizing: border-box; color: #eee; margin-top:5px; margin-left:15px;">
+					<button type="submit" style="color:white; background:transparent; border:none;"><i class="fa fa-search fa-lg fa-fade"></i></button>
+				</form>
+            </div>
+</div>
+<h1 style="margin-left:10px; color:white;">Search Results</h1>
+{% if data %}
+		<b style="margin-left:10px; color:white;">Results : </b>{{ data|length }}
+		<div class="search-results">
+			{% for CustomUser in data %}
+					   <!-- <div class="card" style="width:400px; height:735px; padding:10px;border: 1.5px solid teal; border-radius:7px;  box-shadow:5px; margin:15px; background-color:#022140; color:white;" >
+							<img class="card-img-top" src="{{ CustomUser.doctor.profile_picture.url }}" alt="Card image cap" width="70" height="370"/>
+							<h4 class="card-title" style="margin-top:7px;"><b>Dr.{{ CustomUser.first_name }} {{ CustomUser.last_name }}</b></h4>
+							<div class="postcard__bar"></div>
+							<p class="card-text">
+								<b>Specialty :</b> {{ CustomUser.doctor.specialty }}
+								</br>
+								<b>State :</b> {{ CustomUser.doctor.location }}
+								</br>
+								<b>Bio :</b> {{ CustomUser.doctor.bio }}
+								</br>
+								<b>Address :</b> {{ CustomUser.doctor.address }}
+								</br>
+								<b>Phone-number :</b> {{ CustomUser.phone_number }}
+								</br>
+								<b>Landline-number :</b> {{ CustomUser.doctor.landline_number}}
+								</br>
+								<b>Emergency-line :</b> {{ CustomUser.doctor.emergency_line }}
+								</br>
+								<b>Email :</b> {{ CustomUser.email}}
+								</br>
+								{% if user.is_authenticated %}
+									<form method="post">
+										{% csrf_token %}
+										<button type="submit" class="btn btn-info" name="doctor_email" value="{{CustomUser.email}}" style="margin-left:27%;">Book appointment</button>
+									</form>
+								{% endif %}
+							</p>
+					   </div> -->
+					   
+					   
+					   
+					   <section class="container">
+							<div class="card" style="height:800px;">
+								<div class="card-image "><img class="card-img-top" src="{{ CustomUser.doctor.profile_picture.url }}" alt="Card image cap" width="70" height="390"/></div>
+								<h2 style="margin-left:10px;"><b>Dr.{{ CustomUser.first_name }} {{ CustomUser.last_name }}</b></h2>
+								<p><b>Specialty :</b> {{ CustomUser.doctor.specialty }} </br>
+								<b>State :</b> {{ CustomUser.doctor.location }}
+								</br>
+								<b>Bio :</b> {{ CustomUser.doctor.bio }}
+								</br>
+								<b>Address :</b> {{ CustomUser.doctor.address }}
+								</br>
+								<b>Phone-number :</b> {{ CustomUser.phone_number }}
+								</br>
+								<b>Landline-number :</b> {{ CustomUser.doctor.landline_number}}
+								</br>
+								<b>Emergency-line :</b> {{ CustomUser.doctor.emergency_line }}
+								</br>
+								<b>Email :</b> {{ CustomUser.email}}
+								</br>
+								{% if user.is_authenticated %}
+									<form method="post">
+										{% csrf_token %}
+										<button type="submit" class="btn btn-info" name="doctor_email" value="{{CustomUser.email}}" style="margin-left:27%;">Book appointment</button>
+									</form>
+								{% endif %}
+								 </p>
+								<!-- <a href="" style="background-color:black; color:white; padding:15px 20px; display:block; text-align:center; text-decoration:none;">Read more</a> -->
+							</div>
+							
+							
+							
+							</div>
+						</section>
+			{% endfor %}
+		</div>	
+{% endif %}
+   
+{% endblock %}
+
